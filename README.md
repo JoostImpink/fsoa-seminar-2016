@@ -7,4 +7,4 @@ Before attending, make sure you have a WRDS account, installed MobaXterm and hav
 - MobaXterm: Download home edition (installer) on the right: http://mobaxterm.mobatek.net/download-home-edition.html
 - Sublime: Download from: https://www.sublimetext.com/3
 
-Also, create a github user account (http:www.github.com) and install Github for Windows (download from https://desktop.github.com/).
+Also, create a github user account (http://www.github.com) and install Github for Windows (download from https://desktop.github.com/).
