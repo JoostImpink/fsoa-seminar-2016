@@ -1,0 +1,999 @@
+1                                                          The SAS System                          14:19 Thursday, September 1, 2016
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M2) 
+      Licensed to UNIVERSITY OF PENNSYLVANIA - SFA T&R, Site 70055201.
+NOTE: This session is executing on the Linux 2.6.32-642.1.1.el6.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.2
+      SAS/ETS 13.2
+      SAS/OR 13.2
+      SAS/IML 13.2
+      SAS/QC 13.2
+
+NOTE: Additional host information:
+
+ Linux LIN X64 2.6.32-642.1.1.el6.x86_64 #1 SMP Fri May 6 14:54:05 EDT 2016 x86_64 Red Hat Enterprise Linux Server release 6.8 
+      (Santiago) 
+
+      *** Welcome to Wharton Research Data Services (WRDS) ***
+
+WRDS is developed and run by the Wharton School at the University of
+Pennsylvania. We provide access to the databases that define empirical,
+seminal research in the fields of accounting, banking, economics,
+finance, insurance, management, marketing, public policy, risk
+management, and statistics.
+
+If you are not an authorized user of this system, disconnect now.
+All activity is strictly monitored. There may be severe criminal and
+civil penalties for unauthorized access or use of computing resources.
+
+Please report any problems to wrds-support@wharton.upenn.edu.
+
+
+NOTE: SAS initialization used:
+      real time           0.26 seconds
+      cpu time            0.02 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is /home/ufl/imp/autoexec.sas.
+
+NOTE: Libref AUDIT was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/audit/sasdata/audit_comp
+      Engine(2):        V9 
+      Physical Name(2): /wrds/audit/sasdata/corp_legal
+      Engine(3):        V9 
+      Physical Name(3): /wrds/audit/sasdata/oia
+NOTE: Libref BANK was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/bank/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/bank/sasdata/commercial
+      Engine(3):        V9 
+      Physical Name(3): /wrds/bank/sasdata/holding
+NOTE: Libref BLOCK was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/blockholders/sasdata
+NOTE: Libref BOARDEX was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/boardex/sasdata/na
+      Engine(2):        V9 
+      Physical Name(2): /wrds/boardex/sasdata/eur
+      Engine(3):        V9 
+      Physical Name(3): /wrds/boardex/sasdata/uk
+      Engine(4):        V9 
+      Physical Name(4): /wrds/boardex/sasdata/row
+NOTE: Libref BVD was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/bvd/sasdata/ama_v
+      Engine(2):        V9 
+      Physical Name(2): /wrds/bvd/sasdata/ama_l
+      Engine(3):        V9 
+      Physical Name(3): /wrds/bvd/sasdata/ama_m
+      Engine(4):        V9 
+      Physical Name(4): /wrds/bvd/sasdata/ama_s
+      Engine(5):        V9 
+      Physical Name(5): /wrds/bvd/sasdata/bs
+      Engine(6):        V9 
+      Physical Name(6): /wrds/bvd/sasdata/is
+      Engine(7):        V9 
+      Physical Name(7): /wrds/bvd/sasdata/os
+NOTE: Libref BVDTRIAL was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/bvd/sasdata/bs_trial
+NOTE: Libref BVDSAMP was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/bvd_ama
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/bvd_bs
+NOTE: Libref CBOE was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/cboe/sasdata
+NOTE: Libref CENTRIS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/centris/sasdata
+NOTE: Libref CIQ was successfully assigned as follows: 
+      Levels:           5
+      Engine(1):        V9 
+      Physical Name(1): /wrds/capitaliq/sasdata/pplintel
+      Engine(2):        V9 
+      Physical Name(2): /wrds/capitaliq/sasdata/helper
+      Engine(3):        V9 
+      Physical Name(3): /wrds/capitaliq/sasdata/keydev
+      Engine(4):        V9 
+      Physical Name(4): /wrds/capitaliq/sasdata/capstructure
+      Engine(5):        V9 
+      Physical Name(5): /wrds/capitaliq/sasdata/ratings
+NOTE: Libref CIQSAMP was successfully assigned as follows: 
+      Levels:           6
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ciqsamp/sasdata/capstructure
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ciqsamp/sasdata/helper
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ciqsamp/sasdata/keydev
+      Engine(4):        V9 
+      Physical Name(4): /wrds/ciqsamp/sasdata/pplintel
+      Engine(5):        V9 
+      Physical Name(5): /wrds/ciqsamp/sasdata/ratings
+      Engine(6):        V9 
+      Physical Name(6): /wrds/ciqsamp/sasdata/transactions
+NOTE: Libref CISDM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/morningstar/sasdata/cisdm
+NOTE: Libref CISDMSMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/morningstar
+NOTE: Libref COMPB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/bank
+NOTE: Libref COMPBD was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/d_bank
+NOTE: Libref COMPG was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/global
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/global/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/global/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/global/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/global/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/global/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/global/security
+NOTE: Libref COMPGD was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_global
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_global/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_global/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_global/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_global/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_global/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_global/security
+NOTE: Libref COMPA was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/naa
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/naa/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/naa/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/naa/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/naa/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/naa/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/naa/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/naa/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/naa/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/naa/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/naa/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/naa/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/naa/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/naa/transparency
+NOTE: Libref COMPM was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/nam
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/nam/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/nam/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/nam/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/nam/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/nam/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/nam/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/nam/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/nam/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/nam/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/nam/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/nam/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/nam/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/nam/transparency
+NOTE: Libref COMPMCUR was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/nam_current
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/nam_current/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/nam_current/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/nam_current/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/nam_current/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/nam_current/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/nam_current/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/nam_current/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/nam_current/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/nam_current/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/nam_current/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/nam_current/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/nam_current/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/nam_current/transparency
+NOTE: Libref COMPNAD was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_na
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_na/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_na/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_na/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_na/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_na/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_na/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/d_na/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/d_na/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/d_na/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/d_na/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/d_na/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/d_na/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/d_na/transparency
+NOTE: Libref COMPDCUR was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_na_current
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_na_current/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_na_current/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_na_current/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_na_current/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_na_current/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_na_current/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/d_na_current/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/d_na_current/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/d_na_current/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/d_na_current/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/d_na_current/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/d_na_current/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/d_na_current/transparency
+NOTE: Libref COMPSEG was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/seghist
+NOTE: Libref COMPSEGD was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/d_seghist
+NOTE: Libref EXECCOMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/execcomp
+NOTE: Libref COMP was successfully assigned as follows: 
+      Levels:           26
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/seghist
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/nam
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/nam/company
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/nam/currency
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/nam/dictionary
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/nam/economy
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/nam/index
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/nam/industry
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/nam/insider
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/nam/institution
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/nam/pension
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/nam/rating
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/nam/security
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/nam/segments_current
+      Engine(15):        V9 
+      Physical Name(15): /wrds/comp/sasdata/nam/transparency
+      Engine(16):        V9 
+      Physical Name(16): /wrds/comp/sasdata/bank
+      Engine(17):        V9 
+      Physical Name(17): /wrds/comp/sasdata/global
+      Engine(18):        V9 
+      Physical Name(18): /wrds/comp/sasdata/global/company
+      Engine(19):        V9 
+      Physical Name(19): /wrds/comp/sasdata/global/currency
+      Engine(20):        V9 
+      Physical Name(20): /wrds/comp/sasdata/global/dictionary
+      Engine(21):        V9 
+      Physical Name(21): /wrds/comp/sasdata/global/economy
+      Engine(22):        V9 
+      Physical Name(22): /wrds/comp/sasdata/global/index
+      Engine(23):        V9 
+      Physical Name(23): /wrds/comp/sasdata/global/security
+      Engine(24):        V9 
+      Physical Name(24): /wrds/comp/sasdata/execcomp
+      Engine(25):        V9 
+      Physical Name(25): /wrds/comp/sasdata/filings
+      Engine(26):        V9 
+      Physical Name(26): /wrds/comp/sasdata/marginaltax
+NOTE: Libref COMPD was successfully assigned as follows: 
+      Levels:           23
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_seghist
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_na
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_na/company
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_na/currency
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_na/dictionary
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_na/economy
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_na/index
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/d_na/industry
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/d_na/insider
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/d_na/institution
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/d_na/pension
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/d_na/rating
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/d_na/security
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/d_na/segments_current
+      Engine(15):        V9 
+      Physical Name(15): /wrds/comp/sasdata/d_na/transparency
+      Engine(16):        V9 
+      Physical Name(16): /wrds/comp/sasdata/d_bank
+      Engine(17):        V9 
+      Physical Name(17): /wrds/comp/sasdata/d_global
+      Engine(18):        V9 
+      Physical Name(18): /wrds/comp/sasdata/d_global/company
+      Engine(19):        V9 
+      Physical Name(19): /wrds/comp/sasdata/d_global/currency
+      Engine(20):        V9 
+      Physical Name(20): /wrds/comp/sasdata/d_global/dictionary
+      Engine(21):        V9 
+      Physical Name(21): /wrds/comp/sasdata/d_global/economy
+      Engine(22):        V9 
+      Physical Name(22): /wrds/comp/sasdata/d_global/index
+      Engine(23):        V9 
+      Physical Name(23): /wrds/comp/sasdata/d_global/security
+NOTE: Libref COMPH was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/ph
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/pit
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/urq
+NOTE: Libref COMPSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/compsamp/sasdata
+NOTE: Libref COMPSNAP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/snapshot
+NOTE: Libref COMSCORE was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comscore/sasdata
+NOTE: Libref CONTRIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/contributors/sasdata/rq
+NOTE: Libref CRSPA was successfully assigned as follows: 
+      Levels:           8
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crsp/sasdata/a_stock
+      Engine(2):        V9 
+      Physical Name(2): /wrds/crsp/sasdata/a_stock62
+      Engine(3):        V9 
+      Physical Name(3): /wrds/crsp/sasdata/a_indexes
+      Engine(4):        V9 
+      Physical Name(4): /wrds/crsp/sasdata/a_ccm
+      Engine(5):        V9 
+      Physical Name(5): /wrds/crsp/sasdata/a_treasuries
+      Engine(6):        V9 
+      Physical Name(6): /wrds/crsp/sasdata/a_treas_bd
+      Engine(7):        V9 
+      Physical Name(7): /wrds/crsp/sasdata/a_treas_bm
+      Engine(8):        V9 
+      Physical Name(8): /wrds/crsp/sasdata/a_ziman
+NOTE: Libref CRSPQ was successfully assigned as follows: 
+      Levels:           9
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crsp/sasdata/q_stock
+      Engine(2):        V9 
+      Physical Name(2): /wrds/crsp/sasdata/q_indexes
+      Engine(3):        V9 
+      Physical Name(3): /wrds/crsp/sasdata/q_ccm
+      Engine(4):        V9 
+      Physical Name(4): /wrds/crsp/sasdata/q_mutualfunds
+      Engine(5):        V9 
+      Physical Name(5): /wrds/crsp/sasdata/q_stock62
+      Engine(6):        V9 
+      Physical Name(6): /wrds/crsp/sasdata/q_treasuries
+      Engine(7):        V9 
+      Physical Name(7): /wrds/crsp/sasdata/q_treas_bd
+      Engine(8):        V9 
+      Physical Name(8): /wrds/crsp/sasdata/q_treas_bm
+      Engine(9):        V9 
+      Physical Name(9): /wrds/crsp/sasdata/q_ziman
+NOTE: Libref CRSPM was successfully assigned as follows: 
+      Levels:           8
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crsp/sasdata/m_stock
+      Engine(2):        V9 
+      Physical Name(2): /wrds/crsp/sasdata/m_indexes
+      Engine(3):        V9 
+      Physical Name(3): /wrds/crsp/sasdata/m_ccm
+      Engine(4):        V9 
+      Physical Name(4): /wrds/crsp/sasdata/m_stock62
+      Engine(5):        V9 
+      Physical Name(5): /wrds/crsp/sasdata/m_treasuries
+      Engine(6):        V9 
+      Physical Name(6): /wrds/crsp/sasdata/m_treas_bd
+      Engine(7):        V9 
+      Physical Name(7): /wrds/crsp/sasdata/m_treas_bm
+      Engine(8):        V9 
+      Physical Name(8): /wrds/crsp/sasdata/m_ziman
+NOTE: Libref CRSP was successfully assigned as follows: 
+      Levels:           9
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crsp/sasdata/a_stock
+      Engine(2):        V9 
+      Physical Name(2): /wrds/crsp/sasdata/a_stock62
+      Engine(3):        V9 
+      Physical Name(3): /wrds/crsp/sasdata/a_indexes
+      Engine(4):        V9 
+      Physical Name(4): /wrds/crsp/sasdata/a_ccm
+      Engine(5):        V9 
+      Physical Name(5): /wrds/crsp/sasdata/a_treasuries
+      Engine(6):        V9 
+      Physical Name(6): /wrds/crsp/sasdata/a_treas_bd
+      Engine(7):        V9 
+      Physical Name(7): /wrds/crsp/sasdata/a_treas_bm
+      Engine(8):        V9 
+      Physical Name(8): /wrds/crsp/sasdata/a_ziman
+      Engine(9):        V9 
+      Physical Name(9): /wrds/crsp/sasdata/q_mutualfunds
+NOTE: Libref CRSPSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/crspsamp/sasdata
+NOTE: Libref CSMAR was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/csmar/sasdata/trading
+      Engine(2):        V9 
+      Physical Name(2): /wrds/csmar/sasdata/financial
+      Engine(3):        V9 
+      Physical Name(3): /wrds/csmar/sasdata/funds_mkt_research
+NOTE: Libref CUSIPM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/cusip/sasdata
+NOTE: Libref DEALSCAN was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/tfn/sasdata/dealscan
+NOTE: Libref DJONES was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/djones/sasdata
+NOTE: Libref DMEF was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/dmef/sasdata
+NOTE: Libref DOE was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/doe/sasdata
+NOTE: Libref EMDB was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/emdbd
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/emdbm
+NOTE: Libref ETFG was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/etfg/sasdata
+NOTE: Libref ETFGSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/etfg
+NOTE: Libref FACTSET was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/factset/sasdata/ff_usc
+      Engine(2):        V9 
+      Physical Name(2): /wrds/factset/sasdata/ff_int
+      Engine(3):        V9 
+      Physical Name(3): /wrds/factset/sasdata/own
+      Engine(4):        V9 
+      Physical Name(4): /wrds/factset/sasdata/common
+NOTE: Libref FSSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/factset
+NOTE: Libref FDIC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/fdic/sasdata
+NOTE: Libref FF was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/ff/sasdata
+NOTE: Libref FISD was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/mergent/sasdata/naic
+      Engine(2):        V9 
+      Physical Name(2): /wrds/mergent/sasdata/fisd
+NOTE: Libref FISDSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/fisdsamp/sasdata
+NOTE: Libref FRB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/frb/sasdata
+NOTE: Libref GINSIGHT was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ginsight/sasdata/all
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ginsight/sasdata/basic
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ginsight/sasdata/common
+NOTE: Libref GMI was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/gmiratings/sasdata
+NOTE: Libref GSI was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/gsi/sasdata
+NOTE: Libref GOVPX was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/govpx/sasdata
+NOTE: Libref HFR was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/hfr/sasdata/hfrdb
+NOTE: Libref HFRSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/hfrsamp/sasdata/hfrdb
+NOTE: Libref IBES was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ibes/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ibes/sasdata/iga
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ibes/sasdata/guidance
+NOTE: Libref IBESCORP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/ibes/sasdata/corporate
+NOTE: Libref IRI was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/iri/sasdata
+NOTE: Libref ISSM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/issm/sasdata
+NOTE: Libref KLD was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/kld/sasdata
+NOTE: Libref LSPD was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/lspd/sasdata/monthly
+      Engine(2):        V9 
+      Physical Name(2): /wrds/lspd/sasdata/daily
+NOTE: Libref LSPDSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/lspd
+NOTE: Libref MARKIT was successfully assigned as follows: 
+      Levels:           10
+      Engine(1):        V9 
+      Physical Name(1): /wrds/markit/sasdata/cds
+      Engine(2):        V9 
+      Physical Name(2): /wrds/markit/sasdata/red
+      Engine(3):        V9 
+      Physical Name(3): /wrds/markit/sasdata/cdx_composites
+      Engine(4):        V9 
+      Physical Name(4): /wrds/markit/sasdata/cdx_constituents
+      Engine(5):        V9 
+      Physical Name(5): /wrds/markit/sasdata/itraxx_asia_composites
+      Engine(6):        V9 
+      Physical Name(6): /wrds/markit/sasdata/itraxx_europe_composites
+      Engine(7):        V9 
+      Physical Name(7): /wrds/markit/sasdata/itraxx_sovx_composites
+      Engine(8):        V9 
+      Physical Name(8): /wrds/markit/sasdata/itraxx_asia_constituents
+      Engine(9):        V9 
+      Physical Name(9): /wrds/markit/sasdata/itraxx_europe_constituents
+      Engine(10):        V9 
+      Physical Name(10): /wrds/markit/sasdata/itraxx_sovx_constituents
+NOTE: Libref MSFANLY was successfully assigned as follows: 
+      Levels:           5
+      Engine(1):        V9 
+      Physical Name(1): /wrds/markit/sasdata/msf_analytics_bonds
+      Engine(2):        V9 
+      Physical Name(2): /wrds/markit/sasdata/msf_analytics_eqty_amer
+      Engine(3):        V9 
+      Physical Name(3): /wrds/markit/sasdata/msf_analytics_eqty_euro
+      Engine(4):        V9 
+      Physical Name(4): /wrds/markit/sasdata/msf_analytics_eqty_asia
+      Engine(5):        V9 
+      Physical Name(5): /wrds/markit/sasdata/msf_analytics_eqty_other
+NOTE: Libref MSFINST was successfully assigned as follows: 
+      Levels:           5
+      Engine(1):        V9 
+      Physical Name(1): /wrds/markit/sasdata/msf_inst_bonds
+      Engine(2):        V9 
+      Physical Name(2): /wrds/markit/sasdata/msf_inst_eqty_amer
+      Engine(3):        V9 
+      Physical Name(3): /wrds/markit/sasdata/msf_inst_eqty_asia
+      Engine(4):        V9 
+      Physical Name(4): /wrds/markit/sasdata/msf_inst_eqty_euro
+      Engine(5):        V9 
+      Physical Name(5): /wrds/markit/sasdata/msf_inst_eqty_other
+NOTE: Libref MRKTSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/markit/cdsred
+NOTE: Libref MFL was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/mfl/sasdata
+NOTE: Libref MSRB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/msrb/sasdata
+NOTE: Libref MSRBSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/msrb
+NOTE: Libref NASTRAQ was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/nastraq/sasdata
+NOTE: Libref OMTRIAL was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/optionmetrics
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/optionmetrics/europe
+NOTE: Libref OPTIONM was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/optionm/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/optionm/sasdata/europe
+NOTE: Libref OTC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/otc/sasdata/endofday
+NOTE: Libref PACAP was successfully assigned as follows: 
+      Levels:           8
+      Engine(1):        V9 
+      Physical Name(1): /wrds/pacap/sasdata/hk
+      Engine(2):        V9 
+      Physical Name(2): /wrds/pacap/sasdata/id
+      Engine(3):        V9 
+      Physical Name(3): /wrds/pacap/sasdata/ja
+      Engine(4):        V9 
+      Physical Name(4): /wrds/pacap/sasdata/ks
+      Engine(5):        V9 
+      Physical Name(5): /wrds/pacap/sasdata/my
+      Engine(6):        V9 
+      Physical Name(6): /wrds/pacap/sasdata/sn
+      Engine(7):        V9 
+      Physical Name(7): /wrds/pacap/sasdata/tw
+      Engine(8):        V9 
+      Physical Name(8): /wrds/pacap/sasdata/th
+NOTE: Libref PHLX was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/phlx/sasdata
+NOTE: Libref PUBLIC was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/public/sasdata/healthcare/hcup
+      Engine(2):        V9 
+      Physical Name(2): /wrds/public/sasdata/healthcare/meps
+      Engine(3):        V9 
+      Physical Name(3): /wrds/public/sasdata/macroecon/bea
+      Engine(4):        V9 
+      Physical Name(4): /wrds/public/sasdata/macroecon/bls
+NOTE: Libref PWT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/pwt/sasdata
+NOTE: Libref RENT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/rent/sasdata
+NOTE: Libref REPRISK was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/reprisk/sasdata/pm
+      Engine(2):        V9 
+      Physical Name(2): /wrds/reprisk/sasdata/std
+      Engine(3):        V9 
+      Physical Name(3): /wrds/reprisk/sasdata
+NOTE: Libref REVERE was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/factset/sasdata/revere_common
+      Engine(2):        V9 
+      Physical Name(2): /wrds/factset/sasdata/revere_supply_chain
+      Engine(3):        V9 
+      Physical Name(3): /wrds/factset/sasdata/revere_geo_rev
+      Engine(4):        V9 
+      Physical Name(4): /wrds/factset/sasdata/revere_ind_class
+NOTE: Libref RISK was successfully assigned as follows: 
+      Levels:           6
+      Engine(1):        V9 
+      Physical Name(1): /wrds/riskmetrics/sasdata/directors
+      Engine(2):        V9 
+      Physical Name(2): /wrds/riskmetrics/sasdata/governance
+      Engine(3):        V9 
+      Physical Name(3): /wrds/riskmetrics/sasdata/proposals
+      Engine(4):        V9 
+      Physical Name(4): /wrds/riskmetrics/sasdata/votes
+      Engine(5):        V9 
+      Physical Name(5): /wrds/riskmetrics/sasdata/voting_analytics
+      Engine(6):        V9 
+      Physical Name(6): /wrds/riskmetrics/sasdata/voting_analytics/issrec
+NOTE: Libref RISKSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/riskmetrics
+NOTE: Libref RPNA was successfully assigned as follows: 
+      Levels:           5
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ravenpack/sasdata/common
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ravenpack/sasdata/dow_jones_edition
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ravenpack/sasdata/full_edition
+      Engine(4):        V9 
+      Physical Name(4): /wrds/ravenpack/sasdata/pr_edition
+      Engine(5):        V9 
+      Physical Name(5): /wrds/ravenpack/sasdata/web_edition
+NOTE: Libref RPNASAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/ravenpack
+NOTE: Libref SNAPSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/comp_snap
+NOTE: Libref SECSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/sec
+NOTE: Libref SPRAT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/sprat
+NOTE: Libref TAQ was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/taq/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/nyse/sasdata/wrds_taqs_ct
+      Engine(3):        V9 
+      Physical Name(3): /wrds/nyse/sasdata/wrds_taqs_nbbo
+NOTE: Libref TAQMSEC was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/nyse/sasdata/taqms/ct
+      Engine(2):        V9 
+      Physical Name(2): /wrds/nyse/sasdata/taqms/cq
+      Engine(3):        V9 
+      Physical Name(3): /wrds/nyse/sasdata/taqms/mast
+      Engine(4):        V9 
+      Physical Name(4): /wrds/nyse/sasdata/taqms/nbbo
+NOTE: Libref TAQSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/taqsamp/sasdata
+NOTE: Libref TAQMSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/taqmssamp/sasdata
+NOTE: Libref TASS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/tfn/sasdata/tass
+NOTE: Libref TFN was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/tfn/sasdata/s12
+      Engine(2):        V9 
+      Physical Name(2): /wrds/tfn/sasdata/s34
+      Engine(3):        V9 
+      Physical Name(3): /wrds/tfn/sasdata/insiders
+NOTE: Libref TRACE was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/trace/sasdata/standard
+      Engine(2):        V9 
+      Physical Name(2): /wrds/trace/sasdata/enhanced
+NOTE: Libref TROWN was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/tfn/sasdata/ownership
+NOTE: Libref TRSAMP was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/ibes_guidance
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/tass
+      Engine(3):        V9 
+      Physical Name(3): /wrds/samples/sasdata/worldscope
+NOTE: Libref TRWS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/tfn/sasdata/worldscope
+NOTE: Libref WCAI was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): /wrds/wcai/sasdata/ipc
+NOTE: Libref WRDSSEC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/sec/sasdata
+NOTE: Libref ZACKS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/zacks/sasdata
+NOTE: Libref ZACKSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/zacks
+
+NOTE: AUTOEXEC processing completed.
+
+1          /*
+2            Sample sas file to query Compustat Fundamental Annual (Funda)
+3          
+4            Sample query to filter potential strong performing firms:
+5            - minimum market cap of $1 billion
+6            - return on assets exceeding 5%
+7          
+8            For these firms, retrieve:
+9            - company name (conm)
+10           - ticker symbol (tic)
+11           - industry code (sich)
+12           - sales growth (year over year increase in sale)
+13           - return on assets (ni/at)
+14         
+15           Overview of variables in Funda:
+15       ! https://wrds-web.wharton.upenn.edu/wrds/tools/variable.cfm?library_id
+15       ! =129&file_id=65811
+16         
+17         */
+18         
+19         /* Initial dataset */
+20         data a_firms (keep = gvkey fyear tic conm sich sale ni at prcc_f
+20       ! csho);
+21         set comp.funda;
+22         /* Require fiscal year to be 2014 and 2015 (two years needed to
+22       ! compute sales growth) */
+23         where fyear IN (2014, 2015);
+24         /* General filter to drop doubles from Compustat Funda */
+25         if indfmt='INDL' and datafmt='STD' and popsrc='D' and consol='C' ;
+26         run;
+
+NOTE: There were 38203 observations read from the data set COMP.FUNDA.
+      WHERE fyear in (2014, 2015);
+NOTE: The data set WORK.A_FIRMS has 21659 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.53 seconds
+      cpu time            0.48 seconds
+      
+
+27         
+28         /* Sort (probably already sorted by gvkey and fyear) */
+29         proc sort data=a_firms; by gvkey fyear;run;
+
+NOTE: There were 21659 observations read from the data set WORK.A_FIRMS.
+NOTE: The data set WORK.A_FIRMS has 21659 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+30         
+31         /* Filter firms */
+32         data b_strongfirms;
+33         set a_firms;
+34         /* Get previous year sales using IFN function: IFN (condition, value
+34       ! if true, value if false, value if missing)
+35           Period (.) means missing, so if the gvkey is not the same, and
+35       ! fyear is not the next year, set sale_lag to missing
+36         */
+37         sale_lag = ifn(gvkey=lag(gvkey) and fyear=lag(fyear)+1, lag(sale), .
+37       ! );
+38         /* Positive sale_lag, positive assets */
+39         if sale_lag > 0 and at > 0;
+40         /* Non-missing net income, assets, (lagged) sales, stock price or
+40       ! #shares. cmiss function computes #missing variables */
+41         if cmiss ( of ni at sale sale_lag prcc_f csho) eq 0;
+42         /* Minimum market cap */
+43         if prcc_f * csho > 1000;
+44         /* return on assets */
+45         roa = ni / at;
+46         /* Minimum return on assets */
+47         if roa > 0.05;
+48         /* sales growth */
+49         growth = sale / sale_lag -1;
+50         run;
+
+NOTE: Missing values were generated as a result of performing an operation on 
+      missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      1 at 37:53   
+NOTE: There were 21659 observations read from the data set WORK.A_FIRMS.
+NOTE: The data set WORK.B_STRONGFIRMS has 881 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+51         
+52         /* Print */
+53         proc print data=b_strongfirms (obs=10); run;
+
+NOTE: There were 10 observations read from the data set WORK.B_STRONGFIRMS.
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.48 seconds
+      cpu time            0.29 seconds
+      
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.74 seconds
+      cpu time            0.93 seconds
+      
